@@ -1,12 +1,12 @@
 # An Analysis of Kickstarter Campaigns
-Analysis of theater Kickstarters to uncover trends that will facilitate a succesful fundraising campaign for Louise's play 
-## Images
-![Parent Category Outcomes] (https://github.com/jcc-bloop/Kickstarter-analysis/blob/master/Parent%20Category%20Outcomes.png)
-
-![Outcomes Base on Launch Dates] (https://github.com/jcc-bloop/Kickstarter-analysis/blob/master/Outcomes%20Based%20on%20Launch%20Date.png) 
-
-![Subcategory Statistics] (https://github.com/jcc-bloop/Kickstarter-analysis/blob/master/Subcategory%20Statistics.png) 
-
-![Distribution of Money Goal vs. Money Pledged] (https://github.com/jcc-bloop/Kickstarter-analysis/blob/master/Distibution%20of%20Money%20Goal%20vs%20Money%20Pledged.png) 
-### Conclusions 
-The data suggests that theater campaigns tend to be very succesful. It also suggests that Louise should start her campaign in May, the month with the highsest number of succesful campaigns according to the data provided. Louise wants to crowdfund $12,000, but according to the data the mean goal of succesful theater Kickstarters $5,049 and the median was $3,000, while the failed theater kickstarters had an average of $10,554 and a median goal of $5000.  With a Standard deviation of $7,749 - which is larger than the mean - shows a positive skew and everything below the mean is close to the center of distribution. In order to increase the odds of a successful campaign, then it would be better for Louise to lower her campaign goal and start it in May. 
+## Overview
+The purpose of this analysis was to use Excel to show the outcomes of Kickstarters for plays in relation to thier launch dates and goal amounts. 
+## Analysis and Challenges
+### Analysis of Outcomes Based on Launch Date
+To find the outcomes of theater Kickstarters in relation to their launch dates, the launch dates had to be converted to years by using the `YEAR()` function. A pivot table was created with the filters of "Parent Category" and "Years." The row filters were set to "Date Created," and was formatted to only show the months. The columns were set outcomes, with the three outcomes being "successful," "failed," and "canceled." A Line graph was plotted with the data from the pivot table and can be found here: ![Theater_Outcomes_vs_Launch] (https://github.com/jcc-bloop/Kickstarter-analysis/blob/master/Resources/Theater_Outcomes_vs_Launch.png). According to this data, The most succesful outcomes occured in May.
+### Analysis of Outcomes Base on Goals
+To determine the outcomes based on goals, the `COUNTIFS()`function with the criteria of 'Goal,' 'Outcomes' and 'Subcategory' was used to extract the number of outcomes for the subcategory of "Plays" and placed into a new worksheet. A table was created to count the number of successful, failed, and canceled, as well as the total number of campaigns in order to determine the percentage of the outcomes. This data can be vizualized here: ![Outcomes_vs_Goals] (https://github.com/jcc-bloop/Kickstarter-analysis/blob/master/Resources/Outcomes_vs_Goals.png). According to this data, the most succesful campaigns have a goal that is lower than $1000.
+### Challenges
+The only challenge encountered was finding the correct excel formula for the `COUNTIFS()`function to work properly. After numerous trial and errors, the formula that worked was`=COUNTIFS(Kickstarter!$D:$D,"<1000", Kickstarter!$F:$F, "successful", Kickstarter!$R:R, "plays")`. 
+## Results
+Two conclusions that can be drawn from from the outcomes base on launch is that a theater kickstarter campaign should most likely start in May, since the most number of succesful campaigns started in May, but May also had the most failures. This just may be due to the fact that May is the month where the most campaigns started. For the outcomes based on goals, the greatest percentage of successful campaigns had goals that were less than $1000. According to the data, Louise should start a campaign in May with a campaign goal around $1000 or less, but there are limitations to this data due outliers. As one can see, the largest percentage of failure for a campaign was 100% that had a goal between $45,000 to $49,999 -- the only one in the category and it is not enough data to make a decision. For a better analysis, I would make the suggestion to use the data to create a box and whisker plot to see the distribution of the data to get a better idea of how much Lousie should set for her campaign goal. 
